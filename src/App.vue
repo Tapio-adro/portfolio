@@ -129,7 +129,7 @@ export default {
         link: 'https://tapio-adro.github.io/multiply-trainer/index.html',
         layout: 'adaptive, for phone devices with 1 break-point'
       },
-      curPage: 'about',
+      curPage: 'projects',
       summary: 'Passionate junior front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS. Ready to develop high-quality software with Vue.js.',
       hardSkills: [
         'HTML5/CSS3/JS.',
