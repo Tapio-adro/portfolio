@@ -1,0 +1,244 @@
+body
+  font-family: Verdana,sans-serif
+
+$green: #04AA6D
+$lightgrey: #f3f3f3
+$grey: #ddd
+$textgrey: #666
+  
+.box_shadow
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19)
+
+#nav
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  background-color: $lightgrey
+  display: flex
+  justify-content: space-evenly
+  div
+    padding: 15px
+    background-color: $grey
+    font-size: 1.5rem
+    cursor: pointer
+    &:hover, &.active
+      background-color: $green
+      color: #fff
+
+#content
+  width: 80%
+  min-width: 400px
+  margin: 50px auto
+
+.img_link
+  margin: 25px auto
+  display: block
+  position: relative
+  overflow: hidden
+  .img_title
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    opacity: 0
+    transition: 0.5s
+    div
+      font-size: 1.5rem
+      background-color: #fff
+      color: $green
+      padding: 10px
+      border: 10px solid $green
+  &:hover .img_title
+    opacity: 1
+  img
+    width: 100%
+    display: block
+    border-radius: 10px
+    transition: 0.5s
+  &:hover img
+    transform: scale(1.1)
+  &::before
+    content: ''
+    display: block
+    position: absolute
+    background-color: #000
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    border-radius: 10px
+    opacity: 0
+    transition: 0.5s
+  &:hover::before
+    opacity: 0.7
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 2
+    border-radius: 10px
+    border: 10px solid $green
+.list_markers
+  list-style: none
+  ::before
+    content: '▶'
+    color: $green
+    font-weight: bold
+    display: inline-block
+    width: 1em
+    margin-left: -1em
+    padding-right: 5px
+#projects .links
+  display: flex
+  margin: 20px auto 0
+  justify-content: space-evenly
+  flex-wrap: wrap
+  gap: 10px 20px
+  a
+    display: block
+    text-decoration: none
+    padding: 10px
+    font-weight: bold
+    border-radius: 10px
+  .github
+    color: #333
+    border: 5px solid #333
+    &:hover
+      border-color: #333
+      background-color: #333
+      color: #fff
+  .page
+    color: $green
+    border: 5px solid $green
+    &:hover
+      border-color: $green
+      background-color: $green
+      color: #fff
+
+#projects #main
+  border-radius: 30px
+  padding: 25px 0
+  .container
+    min-width: 400px
+    width: 60%    
+    margin: 0 auto
+  .title
+    text-align: center
+  ul
+    @extend .list_markers
+    margin: 0 auto
+    padding-left: 20px
+    li
+      padding: 10px 0
+      &:not(.last)
+        border-bottom: 1px solid $green
+      span
+        background-color: $lightgrey
+        padding: 2px
+        border-radius: 3px
+#projects #projects_holder
+  margin-top: 50px
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-column-gap: 40px
+  .project
+    @extend .box_shadow
+    border-radius: 20px
+    padding: 15px 0
+    .container
+      width: 80%
+      margin: 0 auto
+    .title
+      text-align: center
+      font-size: 1.7rem
+    .links
+      margin: 10px auto 0
+    .img_link
+      margin: 15px auto
+      .img_title div
+        font-size: 1rem
+        padding: 5px
+        border: 5px solid $green
+    ul
+      @extend .list_markers
+      margin: 0 auto
+      padding-left: 20px
+      li
+        padding: 5px 0
+        span
+          background-color: $lightgrey
+          padding: 2px
+          border-radius: 3px
+
+#about
+  h1
+    width: 350px
+    color: $textgrey
+    border-bottom: 10px solid $green
+    border-top: 10px solid $green
+    margin: 0 auto 40px
+    text-align: center
+    padding: 10px 0
+    border-radius: 20px
+    background-color: $lightgrey
+  h2
+    text-align: center
+    color: $green
+    margin-bottom: 15px
+  ul
+    @extend .list_markers
+    margin: 0
+    li
+      margin-bottom: 7px
+
+#about #summary
+  @extend .box_shadow
+  border-radius: 20px
+  padding: 20px 60px 30px
+  margin-bottom: 40px
+  span
+    font-size: 1.2rem
+    line-height: 1.7rem
+
+#about #skills
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-column-gap: 40px
+  >div
+    @extend .box_shadow
+    border-radius: 20px
+    padding: 20px
+
+#about #contact_me
+  @extend .box_shadow
+  border-radius: 20px
+  padding: 20px 50px 30px
+  margin-top: 40px
+  #contacts
+    display: flex
+    justify-content: space-evenly
+    font-size: 1.2rem
+    i
+      color: $green
+    a
+      text-decoration: none
+      border-bottom: 5px solid #2AABEE
+      padding: 5px
+      border-radius: 5px
+      color: black
+    #email span
+      padding: 5px
+      border-bottom: 5px solid
+      border-image: linear-gradient(to right,#4285F4,#4285F4 25%,#DB4437 25%,#DB4437 50%,#F4B400 50%,#F4B400 75%,#0F9D58 75%) 5
+      border-radius: 5px
+      mask:  linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)
+      cursor: pointer
