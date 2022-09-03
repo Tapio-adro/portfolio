@@ -1,6 +1,9 @@
-@charset "UTF-8";
 body {
   font-family: Verdana,sans-serif;
+}
+
+#app {
+  min-width: 400px;
 }
 
 .box_shadow, #projects #projects_holder .project, #about #summary, #about #skills > div, #about #contact_me {
@@ -9,6 +12,7 @@ body {
 }
 
 #nav {
+  min-width: 400px;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #f3f3f3;
@@ -36,6 +40,13 @@ body {
   width: 80%;
   min-width: 400px;
   margin: 50px auto;
+}
+
+@media (max-width: 600px) {
+  #content {
+    margin-top: 40px;
+    min-width: 300px;
+  }
 }
 
 .img_link {
@@ -129,14 +140,19 @@ body {
   list-style: none;
 }
 
-.list_markers ::before, #projects #main ul ::before, #projects #projects_holder .project ul ::before, #about ul ::before {
-  content: '▶';
-  color: #04AA6D;
-  font-weight: bold;
-  display: inline-block;
+.list_markers li::before, #projects #main ul li::before, #projects #projects_holder .project ul li::before, #about ul li::before {
+  content: '';
+  -webkit-clip-path: polygon(5% 2%, 5% 100%, 90% 50%);
+          clip-path: polygon(5% 2%, 5% 100%, 90% 50%);
+  background-color: #04AA6D;
   width: 1em;
-  margin-left: -1em;
-  padding-right: 5px;
+  height: 1em;
+  color: #04AA6D;
+  display: inline-block;
+  margin-left: -1.2em;
+  position: relative;
+  top: 2px;
+  right: 2px;
 }
 
 #projects .links {
@@ -158,6 +174,12 @@ body {
   padding: 10px;
   font-weight: bold;
   border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  #projects .links a {
+    font-size: 0.8rem;
+  }
 }
 
 #projects .links .github {
@@ -188,13 +210,24 @@ body {
 }
 
 #projects #main .container {
-  min-width: 400px;
   width: 60%;
   margin: 0 auto;
 }
 
+@media (max-width: 600px) {
+  #projects #main .container {
+    width: 80%;
+  }
+}
+
 #projects #main .title {
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  #projects #main .title {
+    font-size: 1.5rem;
+  }
 }
 
 #projects #main ul {
@@ -223,6 +256,17 @@ body {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   grid-column-gap: 40px;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
+}
+
+@media (max-width: 1000px) {
+  #projects #projects_holder {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    row-gap: 40px;
+    margin-top: 40px;
+  }
 }
 
 #projects #projects_holder .project {
@@ -238,6 +282,12 @@ body {
 #projects #projects_holder .project .title {
   text-align: center;
   font-size: 1.7rem;
+}
+
+@media (max-width: 600px) {
+  #projects #projects_holder .project .title {
+    font-size: 1.5rem;
+  }
 }
 
 #projects #projects_holder .project .links {
@@ -270,7 +320,8 @@ body {
 }
 
 #about h1 {
-  width: 350px;
+  min-width: 300px;
+  max-width: 350px;
   color: #666;
   border-bottom: 10px solid #04AA6D;
   border-top: 10px solid #04AA6D;
@@ -314,6 +365,14 @@ body {
   grid-column-gap: 40px;
 }
 
+@media (max-width: 600px) {
+  #about #skills {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+}
+
 #about #skills > div {
   border-radius: 20px;
   padding: 20px;
@@ -333,6 +392,11 @@ body {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   font-size: 1.2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
 }
 
 #about #contact_me #contacts i {

@@ -1,16 +1,22 @@
 body
   font-family: Verdana,sans-serif
 
+#app
+  min-width: 400px
+
 $green: #04AA6D
 $lightgrey: #f3f3f3
 $grey: #ddd
 $textgrey: #666
   
+$breakpoint-600: 600px
+
 .box_shadow
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19)
 
 #nav
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  min-width: 400px
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)  
   background-color: $lightgrey
   display: flex
   justify-content: space-evenly
@@ -27,6 +33,9 @@ $textgrey: #666
   width: 80%
   min-width: 400px
   margin: 50px auto
+  @media (max-width: $breakpoint-600)
+    margin-top: 40px
+    min-width: 300px
 
 .img_link
   margin: 25px auto
@@ -89,14 +98,18 @@ $textgrey: #666
     border: 10px solid $green
 .list_markers
   list-style: none
-  ::before
-    content: '▶'
-    color: $green
-    font-weight: bold
-    display: inline-block
+  li::before
+    content: ''
+    clip-path: polygon(5% 2%, 5% 100%, 90% 50%)
+    background-color: $green
     width: 1em
-    margin-left: -1em
-    padding-right: 5px
+    height: 1em
+    color: $green
+    display: inline-block
+    margin-left: -1.2em
+    position: relative
+    top: 2px
+    right: 2px
 #projects .links
   display: flex
   margin: 20px auto 0
@@ -109,6 +122,8 @@ $textgrey: #666
     padding: 10px
     font-weight: bold
     border-radius: 10px
+    @media (max-width: $breakpoint-600)
+      font-size: 0.8rem
   .github
     color: #333
     border: 5px solid #333
@@ -128,11 +143,14 @@ $textgrey: #666
   border-radius: 30px
   padding: 25px 0
   .container
-    min-width: 400px
     width: 60%    
     margin: 0 auto
+    @media (max-width: $breakpoint-600)
+      width: 80%
   .title
     text-align: center
+    @media (max-width: $breakpoint-600)
+      font-size: 1.5rem
   ul
     @extend .list_markers
     margin: 0 auto
@@ -150,6 +168,11 @@ $textgrey: #666
   display: grid
   grid-template-columns: 1fr 1fr
   grid-column-gap: 40px
+  column-gap: 40px
+  @media (max-width: 1000px)
+    grid-template-columns: 1fr
+    row-gap: 40px
+    margin-top: 40px
   .project
     @extend .box_shadow
     border-radius: 20px
@@ -160,6 +183,8 @@ $textgrey: #666
     .title
       text-align: center
       font-size: 1.7rem
+      @media (max-width: $breakpoint-600)
+        font-size: 1.5rem
     .links
       margin: 10px auto 0
     .img_link
@@ -181,7 +206,8 @@ $textgrey: #666
 
 #about
   h1
-    width: 350px
+    min-width: 300px
+    max-width: 350px
     color: $textgrey
     border-bottom: 10px solid $green
     border-top: 10px solid $green
@@ -199,7 +225,6 @@ $textgrey: #666
     margin: 0
     li
       margin-bottom: 7px
-
 #about #summary
   @extend .box_shadow
   border-radius: 20px
@@ -208,16 +233,17 @@ $textgrey: #666
   span
     font-size: 1.2rem
     line-height: 1.7rem
-
 #about #skills
   display: grid
   grid-template-columns: 1fr 1fr
   grid-column-gap: 40px
+  @media (max-width: $breakpoint-600)
+    grid-template-columns: 1fr
+    row-gap: 40px
   >div
     @extend .box_shadow
     border-radius: 20px
     padding: 20px
-
 #about #contact_me
   @extend .box_shadow
   border-radius: 20px
@@ -227,6 +253,9 @@ $textgrey: #666
     display: flex
     justify-content: space-evenly
     font-size: 1.2rem
+    flex-wrap: wrap
+    row-gap: 20px
+    column-gap: 20px
     i
       color: $green
     a
@@ -242,3 +271,4 @@ $textgrey: #666
       border-radius: 5px
       mask:  linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)
       cursor: pointer
+
