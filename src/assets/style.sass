@@ -1,15 +1,18 @@
+$breakpoint-600: 600px
+
 body
   font-family: Verdana,sans-serif
 
 #app
   min-width: 400px
+  @media (max-width: $breakpoint-600)
+    min-width: 300px
 
 $green: #04AA6D
 $lightgrey: #f3f3f3
 $grey: #ddd
 $textgrey: #666
   
-$breakpoint-600: 600px
 
 .box_shadow
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19)
@@ -19,12 +22,18 @@ $breakpoint-600: 600px
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)  
   background-color: $lightgrey
   display: flex
-  justify-content: space-evenly
+  justify-content: center
+  @media (max-width: $breakpoint-600)
+    min-width: 300px
   div
+    font-size: 1.5rem
     padding: 15px
     background-color: $grey
-    font-size: 1.5rem
     cursor: pointer
+    margin: 0 20px
+    @media (max-width: $breakpoint-600)
+      font-size: 1rem
+      padding: 10px
     &:hover, &.active
       background-color: $green
       color: #fff
@@ -138,6 +147,11 @@ $breakpoint-600: 600px
       border-color: $green
       background-color: $green
       color: #fff
+#projects li span
+  background-color: $lightgrey
+  padding: 2px
+  padding-right: 1px
+  border-radius: 3px
 
 #projects #main
   border-radius: 30px
@@ -159,10 +173,6 @@ $breakpoint-600: 600px
       padding: 10px 0
       &:not(.last)
         border-bottom: 1px solid $green
-      span
-        background-color: $lightgrey
-        padding: 2px
-        border-radius: 3px
 #projects #projects_holder
   margin-top: 50px
   display: grid
@@ -199,10 +209,7 @@ $breakpoint-600: 600px
       padding-left: 20px
       li
         padding: 5px 0
-        span
-          background-color: $lightgrey
-          padding: 2px
-          border-radius: 3px
+
 
 #about
   h1
@@ -272,3 +279,147 @@ $breakpoint-600: 600px
       mask:  linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)
       cursor: pointer
 
+#home #full_screen
+  padding-top: 100px
+  width: 100%
+  height: calc(100vh - 60px)
+  @media (max-width: 800px)
+    padding-top: 50px
+  @media (max-width: 600px)
+    height: calc(100vh - 40px)
+  @media (max-width: 400px)
+    height: calc(100vh - 60px)
+  .wrapper
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin: 0 200px
+    @media (max-width: 1200px)
+      margin: 0 120px
+    @media (max-width: 1000px)
+      margin: 0 80px
+    @media (max-width: $breakpoint-600)
+      flex-direction: column
+      align-items: center
+      row-gap: 40px
+      margin: 0 20px
+    .title
+      background-color: $lightgrey
+      width: 60%
+      padding: 20px
+      border-radius: 20px
+      color: $green
+      font-size: 1.2rem
+      font-weight: bold
+      @media (max-width: 800px)
+        font-size: 0.8rem
+      @media (max-width: $breakpoint-600)
+        width: 100%
+      >div
+        font-size: 3rem
+        font-family: Impact, fantasy
+        font-weight: lighter
+        @media (max-width: 800px)
+          font-size: 2rem
+        @media (max-width: 450px)
+          font-size: 1.4rem
+      .name
+        color: #333333
+        border-bottom: 5px solid $green
+        display: inline-block
+        border-radius: 10px
+        margin-top: 5px
+      .create
+        color: $textgrey
+        margin-top: 5px
+      span
+        color: $green
+    .links
+      width: 20%
+      background-color: $lightgrey
+      border-radius: 20px
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-wrap: wrap
+      @media (max-width: 800px)
+        width: 30%
+      @media (max-width: $breakpoint-600)
+        width: 80%
+      a
+        width: 100px
+        height: 100px
+        display: flex
+        justify-content: center
+        align-items: center
+        i
+          font-size: 3rem
+          color: $textgrey
+          @media (max-width: $breakpoint-600) 
+            font-size: 2rem
+          &:hover
+            color: $green     
+#home #links_of_page
+  border-radius: 20px
+  border-top: 5px solid $green
+  background-color: $lightgrey
+  height: 100px
+  display: flex
+  justify-content: center
+  align-items: center
+  column-gap: 50px
+  @media (max-width: 800px)
+    column-gap: 20px
+  @media (max-width: 600px)
+    column-gap: 0px
+  .link
+    font-size: 2rem
+    border: 5px solid $green
+    color: $green
+    padding: 5px
+    border-radius: 10px
+    background-color: #fff
+    cursor: pointer
+    @media (max-width: 800px)
+      font-size: 1.5rem
+    @media (max-width: 600px)
+      font-size: 1rem
+      border-width: 3px
+    &:hover
+      background-color: $green
+      color: #fff
+  .center_elem
+    color: $green
+    font-size: 2rem
+    margin: 0 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    animation-name: shiver
+    animation-duration: 3s
+    animation-iteration-count: 3
+    position: relative
+    @media (max-width: 800px)
+      margin: 0 20px
+      font-size: 1.5rem
+    @media (max-width: 400px)
+      margin: 0 5px
+      font-size: 1rem
+    .fa-long-arrow-left, .fa-long-arrow-right
+      font-size: 3rem
+      @media (max-width: 600px)
+        font-size: 2.5rem
+      @media (max-width: 400px)
+        font-size: 2rem
+    @keyframes shiver
+      0%
+        left: 0
+      5%
+        left: 10px
+      10%
+        left: 0
+      15%
+        left: -10px
+      20%
+        left: 0
+      100%

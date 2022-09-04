@@ -1,9 +1,12 @@
 <template>
   <nav id="nav">
-    <div @click="curPage = 'projects'" :class="{active: curPage == 'projects'}">My Projects</div>
-    <div @click="curPage = 'about'" :class="{active: curPage == 'about'}">About me</div>
+    <div 
+      v-for="(page, index) in pages" :key="index"
+      @click="curPage = page[0]"
+      :class="{active: curPage == page[0]}"
+    >{{ page[1] }}</div>
   </nav>
-  <main id="content">
+  <main id="content" v-if="curPage != 'home'">
     <div id="projects" v-if="curPage == 'projects'">
       <div id="main" class="box_shadow">
         <div class="container">
@@ -94,6 +97,46 @@
       </div>
     </div>
   </main>
+  <div id="home" v-if="curPage == 'home'">
+    <div id="full_screen">
+      <div class="wrapper">
+        <div class="title">
+          Hi, my name is
+          <br>
+          <div class="name">Ostap Terentiuk</div>
+          <div class="create">I develop web applications with <span>Vue</span></div>
+        </div>
+        <div class="links">
+          <a href="https://github.com/Tapio-adro?tab=repositories" class="github">
+            <i class="fa fa-github-square" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ostap-terentiuk" class="linkedin">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="links_of_page">
+      <div
+        v-for="(page, index) in pagesHome" :key="index"
+      >
+        <div
+          v-if="page[0] != ''"
+          class="link"
+          @click="curPage = page[0]; scrollToTop()"
+        >
+          {{ page[1] }}
+        </div>
+        <div class="center_elem" v-else>
+          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+          &nbsp;
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          &nbsp;
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -129,7 +172,13 @@ export default {
         link: 'https://tapio-adro.github.io/multiply-trainer/index.html',
         layout: 'adaptive, for phone devices with 1 break-point'
       },
-      curPage: 'projects',
+      curPage: 'home',
+      pages: [
+        ['home', 'Home'],
+        ['projects', 'My Projects'],
+        ['about', 'About me']
+      ],
+      pagesHome: [],
       summary: 'Passionate junior front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS. Ready to develop high-quality software with Vue.js.',
       hardSkills: [
         'HTML5/CSS3/JS.',
@@ -148,7 +197,7 @@ export default {
         'Resourcefulness',
         'English: intermediate in written, basic in speaking',
       ],
-      doShowCopied: false
+      doShowCopied: false,
     }
   },
   methods: {
@@ -158,7 +207,14 @@ export default {
       setTimeout(() => {
         this.doShowCopied = false;
       }, 1000)
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
     }
+  },
+  beforeMount() {
+    this.pagesHome = this.pages.slice(1);
+    this.pagesHome.splice(1, 0, ['',''])
   },
   components: {
     CopiedModal

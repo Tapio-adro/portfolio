@@ -6,6 +6,12 @@ body {
   min-width: 400px;
 }
 
+@media (max-width: 600px) {
+  #app {
+    min-width: 300px;
+  }
+}
+
 .box_shadow, #projects #projects_holder .project, #about #summary, #about #skills > div, #about #contact_me {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
@@ -19,16 +25,30 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 600px) {
+  #nav {
+    min-width: 300px;
+  }
 }
 
 #nav div {
+  font-size: 1.5rem;
   padding: 15px;
   background-color: #ddd;
-  font-size: 1.5rem;
   cursor: pointer;
+  margin: 0 20px;
+}
+
+@media (max-width: 600px) {
+  #nav div {
+    font-size: 1rem;
+    padding: 10px;
+  }
 }
 
 #nav div:hover, #nav div.active {
@@ -204,6 +224,13 @@ body {
   color: #fff;
 }
 
+#projects li span {
+  background-color: #f3f3f3;
+  padding: 2px;
+  padding-right: 1px;
+  border-radius: 3px;
+}
+
 #projects #main {
   border-radius: 30px;
   padding: 25px 0;
@@ -241,12 +268,6 @@ body {
 
 #projects #main ul li:not(.last) {
   border-bottom: 1px solid #04AA6D;
-}
-
-#projects #main ul li span {
-  background-color: #f3f3f3;
-  padding: 2px;
-  border-radius: 3px;
 }
 
 #projects #projects_holder {
@@ -311,12 +332,6 @@ body {
 
 #projects #projects_holder .project ul li {
   padding: 5px 0;
-}
-
-#projects #projects_holder .project ul li span {
-  background-color: #f3f3f3;
-  padding: 2px;
-  border-radius: 3px;
 }
 
 #about h1 {
@@ -423,5 +438,336 @@ body {
           mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)) padding-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
           mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   cursor: pointer;
+}
+
+#home #full_screen {
+  padding-top: 100px;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+@media (max-width: 800px) {
+  #home #full_screen {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  #home #full_screen {
+    height: calc(100vh - 40px);
+  }
+}
+
+@media (max-width: 400px) {
+  #home #full_screen {
+    height: calc(100vh - 60px);
+  }
+}
+
+#home #full_screen .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 200px;
+}
+
+@media (max-width: 1200px) {
+  #home #full_screen .wrapper {
+    margin: 0 120px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #home #full_screen .wrapper {
+    margin: 0 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  #home #full_screen .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    row-gap: 40px;
+    margin: 0 20px;
+  }
+}
+
+#home #full_screen .wrapper .title {
+  background-color: #f3f3f3;
+  width: 60%;
+  padding: 20px;
+  border-radius: 20px;
+  color: #04AA6D;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  #home #full_screen .wrapper .title {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #home #full_screen .wrapper .title {
+    width: 100%;
+  }
+}
+
+#home #full_screen .wrapper .title > div {
+  font-size: 3rem;
+  font-family: Impact, fantasy;
+  font-weight: lighter;
+}
+
+@media (max-width: 800px) {
+  #home #full_screen .wrapper .title > div {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  #home #full_screen .wrapper .title > div {
+    font-size: 1.4rem;
+  }
+}
+
+#home #full_screen .wrapper .title .name {
+  color: #333333;
+  border-bottom: 5px solid #04AA6D;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+#home #full_screen .wrapper .title .create {
+  color: #666;
+  margin-top: 5px;
+}
+
+#home #full_screen .wrapper .title span {
+  color: #04AA6D;
+}
+
+#home #full_screen .wrapper .links {
+  width: 20%;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  #home #full_screen .wrapper .links {
+    width: 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  #home #full_screen .wrapper .links {
+    width: 80%;
+  }
+}
+
+#home #full_screen .wrapper .links a {
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#home #full_screen .wrapper .links a i {
+  font-size: 3rem;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  #home #full_screen .wrapper .links a i {
+    font-size: 2rem;
+  }
+}
+
+#home #full_screen .wrapper .links a i:hover {
+  color: #04AA6D;
+}
+
+#home #links_of_page {
+  border-radius: 20px;
+  border-top: 5px solid #04AA6D;
+  background-color: #f3f3f3;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 50px;
+          column-gap: 50px;
+}
+
+@media (max-width: 800px) {
+  #home #links_of_page {
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  #home #links_of_page {
+    -webkit-column-gap: 0px;
+            column-gap: 0px;
+  }
+}
+
+#home #links_of_page .link {
+  font-size: 2rem;
+  border: 5px solid #04AA6D;
+  color: #04AA6D;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  #home #links_of_page .link {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #home #links_of_page .link {
+    font-size: 1rem;
+    border-width: 3px;
+  }
+}
+
+#home #links_of_page .link:hover {
+  background-color: #04AA6D;
+  color: #fff;
+}
+
+#home #links_of_page .center_elem {
+  color: #04AA6D;
+  font-size: 2rem;
+  margin: 0 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation-name: shiver;
+          animation-name: shiver;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
+  position: relative;
+}
+
+@media (max-width: 800px) {
+  #home #links_of_page .center_elem {
+    margin: 0 20px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #home #links_of_page .center_elem {
+    margin: 0 5px;
+    font-size: 1rem;
+  }
+}
+
+#home #links_of_page .center_elem .fa-long-arrow-left, #home #links_of_page .center_elem .fa-long-arrow-right {
+  font-size: 3rem;
+}
+
+@media (max-width: 600px) {
+  #home #links_of_page .center_elem .fa-long-arrow-left, #home #links_of_page .center_elem .fa-long-arrow-right {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #home #links_of_page .center_elem .fa-long-arrow-left, #home #links_of_page .center_elem .fa-long-arrow-right {
+    font-size: 2rem;
+  }
+}
+
+@-webkit-keyframes shiver {
+  0% {
+    left: 0;
+  }
+  5% {
+    left: 10px;
+  }
+  10% {
+    left: 0;
+  }
+  15% {
+    left: -10px;
+  }
+  20% {
+    left: 0;
+  }
+  100% {
+  }
+}
+
+@keyframes shiver {
+  0% {
+    left: 0;
+  }
+  5% {
+    left: 10px;
+  }
+  10% {
+    left: 0;
+  }
+  15% {
+    left: -10px;
+  }
+  20% {
+    left: 0;
+  }
+  100% {
+  }
 }
 /*# sourceMappingURL=style.css.map */
