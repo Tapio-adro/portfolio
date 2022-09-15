@@ -107,10 +107,10 @@
           <div class="create">I develop web applications with <span>Vue</span></div>
         </div>
         <div class="links">
-          <a href="https://github.com/Tapio-adro?tab=repositories" class="github">
+          <a href="https://github.com/Tapio-adro?tab=repositories" target="_blank" class="github">
             <i class="fa fa-github-square" aria-hidden="true"></i>
           </a>
-          <a href="https://www.linkedin.com/in/ostap-terentiuk" class="linkedin">
+          <a href="https://www.linkedin.com/in/ostap-terentiuk" target="_blank" class="linkedin">
             <i class="fa fa-linkedin-square" aria-hidden="true"></i>
           </a>
         </div>
@@ -152,7 +152,7 @@ export default {
           technologies: 'plain HTML/CSS/JS',
           description: 'Simple grid-based game written in JavaScript, where you need to capture all the enemies cells to win.',
           github: 'https://github.com/Tapio-adro/4dots',
-          link: 'https://tapio-adro.github.io/4dots/',
+          link: 'https://4dots.netlify.app',
           layout: ''
         },
         {
