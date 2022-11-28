@@ -117,23 +117,25 @@
       </div>
     </div>
     <div id="links_of_page">
-      <div
-        v-for="(page, index) in pagesHome" :key="index"
-      >
+      <div id="links_inner">
         <div
-          v-if="page[0] != ''"
-          class="link"
-          @click="curPage = page[0]; scrollToTop()"
+          v-for="(page, index) in pagesHome" :key="index"
         >
-          {{ page[1] }}
-        </div>
-        <div class="center_elem" v-else>
-          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-          &nbsp;
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-          &nbsp;
-          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-        </div>
+          <div
+            v-if="page[0] != ''"
+            class="link"
+            @click="curPage = page[0]; scrollToTop()"
+          >
+            {{ page[1] }}
+          </div>
+          <div class="center_elem" v-else>
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            &nbsp;
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            &nbsp;
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          </div>
+      </div>
       </div>
     </div>
   </div>
@@ -152,7 +154,7 @@ export default {
           technologies: 'plain HTML/CSS/JS',
           description: 'Simple grid-based game written in JavaScript, where you need to capture all the enemies cells to win.',
           github: 'https://github.com/Tapio-adro/4dots',
-          link: 'https://4dots.netlify.app',
+          link: 'https://4dots.netlify.app/',
           layout: ''
         },
         {
@@ -160,7 +162,7 @@ export default {
           technologies: 'Vue.js, Sass',
           description: 'App that allows you to create any unique countdown loops.',
           github: 'https://github.com/Tapio-adro/timeloops',
-          link: 'https://tapio-adro.github.io/timeloops/',
+          link: 'https://timeloops.netlify.app/',
           layout: 'adaptive, for phone devices'
         }
       ],
@@ -193,9 +195,8 @@ export default {
         'Fast-learning',
         'Problem-solving',
         'Critical thinking',
-        'Organizational',
         'Resourcefulness',
-        'English: intermediate in written, basic in speaking',
+        'English: intermediate in written, basic in spoken',
       ],
       doShowCopied: false,
     }
