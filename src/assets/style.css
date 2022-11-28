@@ -412,6 +412,7 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 10px 20px;
+  height: 50px;
 }
 #projects .links a {
   display: block;
@@ -481,6 +482,46 @@ body {
 }
 #projects #main ul li:not(.last) {
   border-bottom: 1px solid #04AA6D;
+}
+
+#projects #main #double_link_holder {
+  height: 50px;
+  width: 300px;
+  color: #04AA6D;
+  border: 5px solid #04AA6D;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+}
+#projects #main #double_link_holder.active {
+  border: none;
+  padding: 0;
+}
+#projects #main #double_link_holder #double_link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#projects #main #double_link_holder #double_link a {
+  height: 50px;
+  padding: 0;
+  color: #04AA6D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  border: 3px solid #04AA6D;
+}
+#projects #main #double_link_holder #double_link a:hover {
+  background-color: #04AA6D;
+  color: #fff;
+}
+#projects #main #double_link_holder #double_link i {
+  padding: 10px;
+  font-weight: bold;
 }
 
 #projects #projects_holder {

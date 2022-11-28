@@ -21,7 +21,19 @@
             <li v-if="main.layout != ''" class="last"><span>Layout</span>: {{main.layout}}</li>
           </ul>
           <div class="links">
-            <a :href="main.link" target="_blank" class="page">Go to page</a>
+            <div id="double_link_holder"
+              @mouseover="hideDoubleLink = false"
+              @mouseleave="hideDoubleLink = true"
+              v-auto-animate
+              :class="{active: !hideDoubleLink}"
+            >
+              <div v-if="hideDoubleLink">Go to page</div>
+              <div v-else id="double_link">
+                <a :href="main.links[0]" target="_blank" class="left">First part</a>
+                <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                <a :href="main.links[1]" target="_blank" class="right">Second part</a>
+              </div>
+            </div>
             <a :href="main.github" target="_blank" class="github">GitHub Repo</a>
           </div>
         </div>
@@ -91,7 +103,7 @@
             </span>
           </div>
           <Teleport to="body">
-            <CopiedModal :show="doShowCopied"></CopiedModal>
+            <CopiedModal :show="showCopied"></CopiedModal>
           </Teleport>
         </div>
       </div>
@@ -171,7 +183,10 @@ export default {
         technologies: 'plain HTML/CSS/JS',
         description: 'App consists of two parts. First is actualy for learning multiplication table. Second is for training in solving fractional equations, also has exslusive feature of creating step by step explanation for every equation.',
         github: 'https://github.com/Tapio-adro/multiply-trainer',
-        link: 'https://tapio-adro.github.io/multiply-trainer/index.html',
+        links: [
+          'https://tapio-adro.github.io/multiply-trainer/index.html',
+          'https://tapio-adro.github.io/multiply-trainer/fraction/index.html'
+        ],
         layout: 'adaptive, for phone devices with 1 break-point'
       },
       curPage: 'home',
@@ -198,15 +213,16 @@ export default {
         'Resourcefulness',
         'English: intermediate in written, basic in spoken',
       ],
-      doShowCopied: false,
+      showCopied: false,
+      hideDoubleLink: true
     }
   },
   methods: {
     copyEmail() {
       navigator.clipboard.writeText('terentuk4321@gmail.com');
-      this.doShowCopied = true;
+      this.showCopied = true;
       setTimeout(() => {
-        this.doShowCopied = false;
+        this.showCopied = false;
       }, 1000)
     },
     scrollToTop() {

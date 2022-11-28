@@ -279,6 +279,7 @@ $textgrey: #666
   justify-content: space-evenly
   flex-wrap: wrap
   gap: 10px 20px
+  height: 50px
   a
     display: block
     text-decoration: none
@@ -327,6 +328,40 @@ $textgrey: #666
       padding: 10px 0
       &:not(.last)
         border-bottom: 1px solid $green
+#projects #main #double_link_holder
+  height: 50px
+  width: 300px
+  color: $green
+  border: 5px solid $green
+  padding: 10px
+  font-weight: bold
+  border-radius: 10px
+  text-align: center
+  &.active
+    border: none
+    padding: 0
+  #double_link
+    display: flex
+    align-items: center
+    justify-content: space-between
+    a
+      height: 50px
+      padding: 0
+      color: $green
+      display: flex
+      justify-content: center
+      align-items: center
+      font-weight: bold
+      border-radius: 10px
+      padding: 10px
+      border: 3px solid $green
+    a:hover
+      background-color: $green
+      color: #fff
+    i
+      padding: 10px
+      font-weight: bold
+
 #projects #projects_holder
   margin-top: 50px
   display: grid
