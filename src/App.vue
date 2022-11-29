@@ -16,7 +16,16 @@
             <img src="./assets/img/img1.png" alt="project1">
           </a>
           <ul>
-            <li><span>Description</span>: {{main.description}}</li>
+            <li><span>Description</span>: 
+              {{main.description[0]}}
+              <span class="double_link_highlighted" :class="{active: doubleLinkPart == 'first'}">
+                {{main.description[1]}}
+              </span>
+              {{ ' ' }}
+              <span class="double_link_highlighted" :class="{active: doubleLinkPart == 'second'}">
+                {{main.description[2]}}
+              </span>
+            </li>
             <li><span>Technologies</span>: {{main.technologies}}</li>
             <li v-if="main.layout != ''" class="last"><span>Layout</span>: {{main.layout}}</li>
           </ul>
@@ -29,9 +38,15 @@
             >
               <div v-if="hideDoubleLink">Go to page</div>
               <div v-else id="double_link">
-                <a :href="main.links[0]" target="_blank" class="left">First part</a>
+                <a :href="main.links[0]" target="_blank" class="left"
+                  @mouseover="doubleLinkPart = 'first'"
+                  @mouseleave="doubleLinkPart = ''"
+                >First part</a>
                 <i class="fa fa-arrows-h" aria-hidden="true"></i>
-                <a :href="main.links[1]" target="_blank" class="right">Second part</a>
+                <a :href="main.links[1]" target="_blank" class="right"
+                  @mouseover="doubleLinkPart = 'second'"
+                  @mouseleave="doubleLinkPart = ''"
+                >Second part</a>
               </div>
             </div>
             <a :href="main.github" target="_blank" class="github">GitHub Repo</a>
@@ -181,7 +196,11 @@ export default {
       main: {
         title: 'Muiltiply-trainer',
         technologies: 'plain HTML/CSS/JS',
-        description: 'App consists of two parts. First is actualy for learning multiplication table. Second is for training in solving fractional equations, also has exslusive feature of creating step by step explanation for every equation.',
+        description: [
+          'App consists of two parts. ', 
+          'First is actualy for learning multiplication table.', 
+          'Second is for training in solving fractional equations, also has exslusive feature of creating step by step explanation for every equation.'
+        ],
         github: 'https://github.com/Tapio-adro/multiply-trainer',
         links: [
           'https://tapio-adro.github.io/multiply-trainer/index.html',
@@ -189,7 +208,7 @@ export default {
         ],
         layout: 'adaptive, for phone devices with 1 break-point'
       },
-      curPage: 'home',
+      curPage: 'projects',
       pages: [
         ['home', 'Home'],
         ['projects', 'My Projects'],
@@ -214,7 +233,8 @@ export default {
         'English: intermediate in written, basic in spoken',
       ],
       showCopied: false,
-      hideDoubleLink: true
+      hideDoubleLink: true,
+      doubleLinkPart: ''
     }
   },
   methods: {
