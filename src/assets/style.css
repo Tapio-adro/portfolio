@@ -149,46 +149,71 @@ body {
 #home #full_screen .wrapper .title span {
   color: #04AA6D;
 }
-#home #full_screen .wrapper .links {
+
+#home #external_links {
   width: 20%;
   background-color: #f3f3f3;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 @media (max-width: 800px) {
-  #home #full_screen .wrapper .links {
+  #home #external_links {
     width: 30%;
   }
 }
 @media (max-width: 600px) {
-  #home #full_screen .wrapper .links {
+  #home #external_links {
     width: 80%;
+    flex-direction: row;
+    align-items: center;
   }
 }
-#home #full_screen .wrapper .links a {
-  width: 100px;
-  height: 100px;
+#home #external_links .link_holder {
+  height: 70px;
+}
+@media (max-width: 600px) {
+  #home #external_links .link_holder {
+    width: 47px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+#home #external_links .link_holder:hover .link_caption {
+  opacity: 1;
+}
+#home #external_links .link_holder .link_caption {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  opacity: 0;
+  transition: 0.25s;
+}
+#home #external_links a {
+  padding: 10px;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#home #full_screen .wrapper .links a i {
+#home #external_links a i {
   font-size: 3rem;
   color: #666;
 }
 @media (max-width: 600px) {
-  #home #full_screen .wrapper .links a i {
+  #home #external_links a i {
     font-size: 2rem;
   }
 }
-#home #full_screen .wrapper .links a i:hover {
+#home #external_links a i:hover {
   color: #04AA6D;
 }
 
-#home #links_of_page {
+#home #internal_links {
   border-radius: 20px;
   border-top: 5px solid #04AA6D;
   background-color: #f3f3f3;
@@ -200,24 +225,24 @@ body {
        column-gap: 50px;
 }
 @media (max-width: 800px) {
-  #home #links_of_page {
+  #home #internal_links {
     -moz-column-gap: 20px;
          column-gap: 20px;
   }
 }
 @media (max-width: 600px) {
-  #home #links_of_page {
+  #home #internal_links {
     -moz-column-gap: 0px;
          column-gap: 0px;
   }
 }
-#home #links_of_page #links_inner {
+#home #internal_links #links_inner {
   display: flex;
   padding: 15px;
   border-radius: 10px;
   background-color: #fff;
 }
-#home #links_of_page .link {
+#home #internal_links .link {
   font-size: 1.5rem;
   border: 3px solid #04AA6D;
   color: white;
@@ -229,21 +254,21 @@ body {
   font-family: sans-serif;
 }
 @media (max-width: 800px) {
-  #home #links_of_page .link {
+  #home #internal_links .link {
     font-size: 1.5rem;
   }
 }
 @media (max-width: 600px) {
-  #home #links_of_page .link {
+  #home #internal_links .link {
     font-size: 1rem;
     border-width: 3px;
   }
 }
-#home #links_of_page .link:hover {
+#home #internal_links .link:hover {
   background-color: #fff;
   color: #04AA6D;
 }
-#home #links_of_page .center_elem {
+#home #internal_links .center_elem {
   color: #04AA6D;
   font-size: 2rem;
   margin: 0 40px;
@@ -259,27 +284,27 @@ body {
   position: relative;
 }
 @media (max-width: 800px) {
-  #home #links_of_page .center_elem {
+  #home #internal_links .center_elem {
     margin: 0 20px;
     font-size: 1.5rem;
   }
 }
 @media (max-width: 400px) {
-  #home #links_of_page .center_elem {
+  #home #internal_links .center_elem {
     margin: 0 5px;
     font-size: 1rem;
   }
 }
-#home #links_of_page .center_elem .fa-long-arrow-left, #home #links_of_page .center_elem .fa-long-arrow-right {
+#home #internal_links .center_elem .fa-long-arrow-left, #home #internal_links .center_elem .fa-long-arrow-right {
   font-size: 3rem;
 }
 @media (max-width: 600px) {
-  #home #links_of_page .center_elem .fa-long-arrow-left, #home #links_of_page .center_elem .fa-long-arrow-right {
+  #home #internal_links .center_elem .fa-long-arrow-left, #home #internal_links .center_elem .fa-long-arrow-right {
     font-size: 2.5rem;
   }
 }
 @media (max-width: 400px) {
-  #home #links_of_page .center_elem .fa-long-arrow-left, #home #links_of_page .center_elem .fa-long-arrow-right {
+  #home #internal_links .center_elem .fa-long-arrow-left, #home #internal_links .center_elem .fa-long-arrow-right {
     font-size: 2rem;
   }
 }

@@ -101,32 +101,53 @@ $textgrey: #666
         margin-top: 5px
       span
         color: $green
-    .links
-      width: 20%
-      background-color: $lightgrey
-      border-radius: 20px
+
+#home #external_links
+  width: 20%
+  background-color: $lightgrey
+  border-radius: 20px
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+  flex-direction: column
+  @media (max-width: 800px)
+    width: 30%
+  @media (max-width: $breakpoint-600)
+    width: 80%
+    flex-direction: row
+    align-items: center
+  .link_holder
+    height: 70px
+    @media (max-width: $breakpoint-600)
+      width: 47px
       display: flex
-      justify-content: center
+      flex-direction: row
       align-items: center
-      flex-wrap: wrap
-      @media (max-width: 800px)
-        width: 30%
-      @media (max-width: $breakpoint-600)
-        width: 80%
-      a
-        width: 100px
-        height: 100px
-        display: flex
-        justify-content: center
-        align-items: center
-        i
-          font-size: 3rem
-          color: $textgrey
-          @media (max-width: $breakpoint-600) 
-            font-size: 2rem
-          &:hover
-            color: $green     
-#home #links_of_page
+    &:hover .link_caption
+      opacity: 1
+    .link_caption
+      text-align: center
+      background-color: #fff
+      border-radius: 5px
+      padding: 5px
+      opacity: 0
+      transition: 0.25s
+  a
+    // width: 100px
+    // height: 100px
+    padding: 10px
+    text-decoration: none
+    display: flex
+    justify-content: center
+    align-items: center
+    i
+      font-size: 3rem
+      color: $textgrey
+      @media (max-width: $breakpoint-600) 
+        font-size: 2rem
+      &:hover
+        color: $green     
+#home #internal_links
   border-radius: 20px
   border-top: 5px solid $green
   background-color: $lightgrey

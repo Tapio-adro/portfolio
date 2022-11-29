@@ -133,17 +133,23 @@
           <div class="name">Ostap Terentiuk</div>
           <div class="create">I develop web applications with <span>Vue</span></div>
         </div>
-        <div class="links">
-          <a href="https://github.com/Tapio-adro?tab=repositories" target="_blank" class="github">
-            <i class="fa fa-github-square" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/ostap-terentiuk" target="_blank" class="linkedin">
-            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-          </a>
+        <div id="external_links">
+          <div class="link_holder">
+            <a href="https://github.com/Tapio-adro?tab=repositories" target="_blank" class="github">
+              <i class="fa fa-github-square" aria-hidden="true"></i>
+            </a>
+            <div class="link_caption">Github</div>
+          </div>
+          <div class="link_holder">
+            <a href="https://www.linkedin.com/in/ostap-terentiuk" target="_blank" class="linkedin">
+              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+            <div class="link_caption">LinkedIn</div>
+          </div>
         </div>
       </div>
     </div>
-    <div id="links_of_page">
+    <div id="internal_links">
       <div id="links_inner">
         <div
           v-for="(page, index) in pagesHome" :key="index"
@@ -178,7 +184,7 @@ export default {
       projects: [
         {
           title: '4Dots',
-          technologies: 'plain HTML/CSS/JS',
+          technologies: 'originally coded with plain HTML/CSS/JS, functionality extended with Vue.js, Sass',
           description: 'Simple grid-based game written in JavaScript, where you need to capture all the enemies cells to win.',
           github: 'https://github.com/Tapio-adro/4dots',
           link: 'https://4dots.netlify.app/',
@@ -186,7 +192,7 @@ export default {
         },
         {
           title: 'Timeloops',
-          technologies: 'Vue.js, Sass',
+          technologies: 'HTML, JS, Vue.js, Sass',
           description: 'App that allows you to create any unique countdown loops.',
           github: 'https://github.com/Tapio-adro/timeloops',
           link: 'https://timeloops.netlify.app/',
@@ -208,7 +214,7 @@ export default {
         ],
         layout: 'adaptive, for phone devices with 1 break-point'
       },
-      curPage: 'projects',
+      curPage: 'home',
       pages: [
         ['home', 'Home'],
         ['projects', 'My Projects'],
@@ -230,7 +236,7 @@ export default {
         'Problem-solving',
         'Critical thinking',
         'Resourcefulness',
-        'English: intermediate in written, basic in spoken',
+        'English: intermediate in written and spoken',
       ],
       showCopied: false,
       hideDoubleLink: true,
