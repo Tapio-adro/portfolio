@@ -275,12 +275,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-animation-name: shiver;
-          animation-name: shiver;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-iteration-count: 3;
-          animation-iteration-count: 3;
+  animation-name: shiver;
+  animation-duration: 3s;
+  animation-iteration-count: 3;
   position: relative;
 }
 @media (max-width: 800px) {
@@ -306,23 +303,6 @@ body {
 @media (max-width: 400px) {
   #home #internal_links .center_elem .fa-long-arrow-left, #home #internal_links .center_elem .fa-long-arrow-right {
     font-size: 2rem;
-  }
-}
-@-webkit-keyframes shiver {
-  0% {
-    left: 0;
-  }
-  5% {
-    left: 10px;
-  }
-  10% {
-    left: 0;
-  }
-  15% {
-    left: -10px;
-  }
-  20% {
-    left: 0;
   }
 }
 @keyframes shiver {
@@ -437,6 +417,8 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 10px 20px;
+  flex: 1;
+  align-items: center;
 }
 #projects .links a {
   height: 50px;
@@ -477,11 +459,11 @@ body {
   border-radius: 3px;
 }
 
-#projects #main .double_link_highlighted {
+#projects .link_highlighted {
   background: none;
   padding: 0;
 }
-#projects #main .double_link_highlighted.active {
+#projects .link_highlighted.active {
   background-color: #FFFF00;
 }
 
@@ -517,9 +499,9 @@ body {
   border-bottom: 1px solid #04AA6D;
 }
 
-#projects #main #double_link_holder {
+#projects #links_holder {
   height: 50px;
-  width: 300px;
+  width: 150px;
   color: #04AA6D;
   border: 5px solid #04AA6D;
   padding: 10px;
@@ -527,16 +509,16 @@ body {
   border-radius: 10px;
   text-align: center;
 }
-#projects #main #double_link_holder.active {
+#projects #links_holder.active {
   border: none;
   padding: 0;
 }
-#projects #main #double_link_holder #double_link {
+#projects #links_holder #double_link {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-#projects #main #double_link_holder #double_link a {
+#projects #links_holder #double_link a {
   height: 50px;
   padding: 0;
   color: #04AA6D;
@@ -548,11 +530,11 @@ body {
   padding: 10px;
   border: 3px solid #04AA6D;
 }
-#projects #main #double_link_holder #double_link a:hover {
+#projects #links_holder #double_link a:hover {
   background-color: #04AA6D;
   color: #fff;
 }
-#projects #main #double_link_holder #double_link i {
+#projects #links_holder #double_link i {
   padding: 10px;
   font-weight: bold;
 }
@@ -579,6 +561,9 @@ body {
 #projects #projects_holder .project .container {
   width: 80%;
   margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 #projects #projects_holder .project .title {
   text-align: center;

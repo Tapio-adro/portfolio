@@ -300,6 +300,8 @@ $textgrey: #666
   justify-content: space-evenly
   flex-wrap: wrap
   gap: 10px 20px
+  flex: 1
+  align-items: center
   a
     height: 50px
     display: block
@@ -328,7 +330,7 @@ $textgrey: #666
   padding: 2px
   padding-right: 1px
   border-radius: 3px
-#projects #main .double_link_highlighted
+#projects .link_highlighted
   background: none
   padding: 0
   &.active
@@ -354,9 +356,9 @@ $textgrey: #666
       padding: 10px 0
       &:not(.last)
         border-bottom: 1px solid $green
-#projects #main #double_link_holder
+#projects #links_holder
   height: 50px
-  width: 300px
+  width: 150px
   color: $green
   border: 5px solid $green
   padding: 10px
@@ -405,6 +407,9 @@ $textgrey: #666
     .container
       width: 80%
       margin: 0 auto
+      height: 100%
+      display: flex
+      flex-direction: column
     .title
       text-align: center
       font-size: 1.7rem

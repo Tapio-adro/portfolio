@@ -10,71 +10,101 @@
     <div id="projects" v-if="curPage == 'projects'">
       <div id="main" class="box_shadow">
         <div class="container">
-          <h1 class="title">{{main.title}}</h1>
-          <a :href="main.link" class="img_link" target="_blank">
+          <h1 class="title">{{project.title}}</h1>
+          <a :href="project.link" class="img_link" target="_blank">
             <div class="img_title"><div>Visit page</div></div>
-            <img src="./assets/img/img1.png" alt="project1">
+            <img :src="require('./assets/img/img1.png')" alt="project1">
           </a>
           <ul>
-            <li><span>Description</span>: 
-              {{main.description[0]}}
-              <span class="double_link_highlighted" :class="{active: doubleLinkPart == 'first'}">
-                {{main.description[1]}}
-              </span>
-              {{ ' ' }}
-              <span class="double_link_highlighted" :class="{active: doubleLinkPart == 'second'}">
-                {{main.description[2]}}
-              </span>
-            </li>
-            <li><span>Technologies</span>: {{main.technologies}}</li>
-            <li v-if="main.layout != ''" class="last"><span>Layout</span>: {{main.layout}}</li>
+            <li><span>Description</span>: {{project.description}}</li>
+            <li><span>Technologies</span>: {{project.technologies}}</li>
+            <li v-if="project.layout != ''"><span>Layout</span>: {{project.layout}}</li>
           </ul>
           <div class="links">
-            <div id="double_link_holder"
-              @mouseover="hideDoubleLink = false"
-              @mouseleave="hideDoubleLink = true"
-              v-auto-animate
-              :class="{active: !hideDoubleLink}"
-            >
-              <div v-if="hideDoubleLink">Go to page</div>
-              <div v-else id="double_link">
-                <a :href="main.links[0]" target="_blank" class="left"
-                  @mouseover="doubleLinkPart = 'first'"
-                  @mouseleave="doubleLinkPart = ''"
-                >First part</a>
-                <i class="fa fa-arrows-h" aria-hidden="true"></i>
-                <a :href="main.links[1]" target="_blank" class="right"
-                  @mouseover="doubleLinkPart = 'second'"
-                  @mouseleave="doubleLinkPart = ''"
-                >Second part</a>
-              </div>
-            </div>
-            <a :href="main.github" target="_blank" class="github">GitHub Repo</a>
+            <a :href="project.link" target="_blank" class="page">Go to page</a>
+            <a :href="project.github" target="_blank" class="github">GitHub Repo</a>
           </div>
         </div>
       </div>
       <div id="projects_holder">
-        <div 
-          class="project"
+        <template
           v-for="(project, index) in projects" :key="index"
         >
-          <div class="container">
-            <h1 class="title">{{project.title}}</h1>
-            <a :href="project.link" class="img_link" target="_blank">
-              <div class="img_title"><div>Visit page</div></div>
-              <img :src="require('./assets/img/img' + (index + 2) +'.png')" alt="project1">
-            </a>
-            <ul>
-              <li><span>Description</span>: {{project.description}}</li>
-              <li><span>Technologies</span>: {{project.technologies}}</li>
-              <li v-if="project.layout != ''"><span>Layout</span>: {{project.layout}}</li>
-            </ul>
-            <div class="links">
-              <a :href="project.link" target="_blank" class="page">Go to page</a>
-              <a :href="project.github" target="_blank" class="github">GitHub Repo</a>
+          <div 
+            class="project"
+            v-if="index != 0"
+          >
+            <div class="container"
+              v-if="project.title != 'Muiltiply-trainer'"
+            >
+              <h1 class="title">{{project.title}}</h1>
+              <a :href="project.link" class="img_link" target="_blank">
+                <div class="img_title"><div>Visit page</div></div>
+                <img :src="require('./assets/img/img' + (index + 2) +'.png')" alt="project1">
+              </a>
+              <ul>
+                <li><span>Description</span>: {{project.description}}</li>
+                <li><span>Technologies</span>: {{project.technologies}}</li>
+                <li v-if="project.layout != ''"><span>Layout</span>: {{project.layout}}</li>
+              </ul>
+              <div class="links">
+                <a :href="project.link" target="_blank" class="page">Go to page</a>
+                <a :href="project.github" target="_blank" class="github">GitHub Repo</a>
+              </div>
+            </div>
+            <div class="container"
+              v-else
+            >
+              <h1 class="title">{{project.title}}</h1>
+              <a :href="project.link" class="img_link" target="_blank">
+                <div class="img_title"><div>Visit page</div></div>
+                <img src="./assets/img/img2.png" alt="project1">
+              </a>
+              <ul>
+                <li><span>Description</span>: 
+                  {{project.description[0]}}
+                  <span class="link_highlighted" :class="{active: linkPart == '1'}">
+                    {{project.description[1]}}
+                  </span>
+                  {{ ' ' }}
+                  <span class="link_highlighted" :class="{active: linkPart == '2'}">
+                    {{project.description[2]}}
+                  </span>
+                  <span class="link_highlighted" :class="{active: linkPart == '3'}">
+                    {{project.description[3]}}
+                  </span>
+                </li>
+                <li><span>Technologies</span>: {{project.technologies}}</li>
+                <li v-if="project.layout != ''" class="last"><span>Layout</span>: {{project.layout}}</li>
+              </ul>
+              <div class="links">
+                <div id="links_holder"
+                  @mouseover="hideDoubleLink = false"
+                  @mouseleave="hideDoubleLink = true"
+                  v-auto-animate
+                  :class="{active: !hideDoubleLink}"
+                >
+                  <div v-if="hideDoubleLink">Go to page</div>
+                  <div v-else id="double_link">
+                    <a :href="project.links[0]" target="_blank" class="left"
+                      @mouseover="linkPart = '1'"
+                      @mouseleave="linkPart = ''"
+                    >1</a>
+                    <a :href="project.links[1]" target="_blank" class="right"
+                      @mouseover="linkPart = '2'"
+                      @mouseleave="linkPart = ''"
+                    >2</a>
+                    <a :href="project.links[2]" target="_blank" class="right"
+                      @mouseover="linkPart = '3'"
+                      @mouseleave="linkPart = ''"
+                    >3</a>
+                  </div>
+                </div>
+                <a :href="project.github" target="_blank" class="github">GitHub Repo</a>
+              </div>
             </div>
           </div>
-        </div>
+        </template>
       </div>
     </div>
     <div id="about" v-if="curPage == 'about'">
@@ -188,7 +218,7 @@ export default {
           description: 'Simple grid-based game written in JavaScript, where you need to capture all the enemies cells to win.',
           github: 'https://github.com/Tapio-adro/4dots',
           link: 'https://4dots.netlify.app/',
-          layout: ''
+          layout: 'adaptive'
         },
         {
           title: 'Timeloops',
@@ -197,24 +227,28 @@ export default {
           github: 'https://github.com/Tapio-adro/timeloops',
           link: 'https://timeloops.netlify.app/',
           layout: 'adaptive, for phone devices'
+        },
+        {
+          title: 'Muiltiply-trainer',
+          technologies: 'plain HTML/CSS/JS',
+          description: [
+            'App consists of three parts. ', 
+            'First is actualy for learning multiplication table. ', 
+            'Second is for training in solving fractional equations, also has exslusive feature of creating step by step explanation for every equation. ',
+            'And third is about learning solving a few types of basic equations with detailed explanation. '
+          ],
+          github: 'https://github.com/Tapio-adro/multiply-trainer-vue',
+          link: 'https://multiply-trainer.netlify.app/',
+          links: [
+            'https://multiply-trainer.netlify.app/',
+            'https://multiply-trainer.netlify.app/fraction-trainer',
+            'https://multiply-trainer.netlify.app/equation-trainer'
+          ],
+          layout: 'adaptive, for phone devices with 1 break-point'
         }
       ],
-      main: {
-        title: 'Muiltiply-trainer',
-        technologies: 'plain HTML/CSS/JS',
-        description: [
-          'App consists of two parts. ', 
-          'First is actualy for learning multiplication table.', 
-          'Second is for training in solving fractional equations, also has exslusive feature of creating step by step explanation for every equation.'
-        ],
-        github: 'https://github.com/Tapio-adro/multiply-trainer',
-        links: [
-          'https://tapio-adro.github.io/multiply-trainer/index.html',
-          'https://tapio-adro.github.io/multiply-trainer/fraction/index.html'
-        ],
-        layout: 'adaptive, for phone devices with 1 break-point'
-      },
-      curPage: 'home',
+      project: {},
+      curPage: 'projects',
       pages: [
         ['home', 'Home'],
         ['projects', 'My Projects'],
@@ -236,11 +270,11 @@ export default {
         'Problem-solving',
         'Critical thinking',
         'Resourcefulness',
-        'English: intermediate in written and spoken',
+        'English: intermediate',
       ],
       showCopied: false,
       hideDoubleLink: true,
-      doubleLinkPart: ''
+      linkPart: ''
     }
   },
   methods: {
@@ -258,6 +292,7 @@ export default {
   beforeMount() {
     this.pagesHome = this.pages.slice(1);
     this.pagesHome.splice(1, 0, ['',''])
+    this.project = this.projects[0]
   },
   components: {
     CopiedModal
