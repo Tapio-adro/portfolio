@@ -248,7 +248,7 @@ export default {
         }
       ],
       project: {},
-      curPage: 'projects',
+      curPage: 'home',
       pages: [
         ['home', 'Home'],
         ['projects', 'My Projects'],
