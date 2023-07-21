@@ -546,6 +546,7 @@ body {
   grid-column-gap: 40px;
   -moz-column-gap: 40px;
        column-gap: 40px;
+  row-gap: 40px;
 }
 @media (max-width: 1000px) {
   #projects #projects_holder {

@@ -250,7 +250,7 @@ export default {
         {
           title: 'Addresses checklist',
           technologies: 'HTML, TypeScript, React.js, Sass',
-          description: 'App which can be used by couriers to navigate addresses. Made to be used on phones.',
+          description: 'App which is designed to be used by couriers to navigate addresses.',
           github: 'https://github.com/Tapio-adro/addresses-app',
           link: 'https://addresses-display.netlify.app/',
           layout: 'for phone devices',
