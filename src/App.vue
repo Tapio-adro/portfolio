@@ -267,12 +267,14 @@ export default {
       pagesHome: [],
       summary: 'Passionate junior front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS. Ready to make efforts to develop quality software with Vue.js.',
       hardSkills: [
-        'HTML5/CSS3/JS.',
+        'HTML5/CSS3/JS',
+        'TypeScript',
         'SASS/SCSS preprocessors', 
         'Adaptive layout, layout for mobile devices', 
         'Flexbox, Grid', 
         'OOP methodology', 
         'Vue.js', 
+        'React.js', 
         'Visual Studio code IDE.'
       ],
       softSkills: [
