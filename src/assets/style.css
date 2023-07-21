@@ -146,8 +146,11 @@ body {
   color: #666;
   margin-top: 5px;
 }
-#home #full_screen .wrapper .title span {
+#home #full_screen .wrapper .title span.vue {
   color: #04AA6D;
+}
+#home #full_screen .wrapper .title span.react {
+  color: #06bcf9;
 }
 
 #home #external_links {

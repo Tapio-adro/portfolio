@@ -161,7 +161,9 @@
           Hi, my name is
           <br>
           <div class="name">Ostap Terentiuk</div>
-          <div class="create">I develop web applications with <span>Vue</span></div>
+          <div class="create">
+            I develop web applications with <span class="vue">Vue</span> and <span class="react">React</span>
+          </div>
         </div>
         <div id="external_links">
           <div class="link_holder">
@@ -258,7 +260,7 @@ export default {
         }
       ],
       project: {},
-      curPage: 'projects',
+      curPage: 'home',
       pages: [
         ['home', 'Home'],
         ['projects', 'My Projects'],
