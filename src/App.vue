@@ -40,7 +40,7 @@
               <h1 class="title">{{project.title}}</h1>
               <a :href="project.link" class="img_link" target="_blank">
                 <div class="img_title"><div>Visit page</div></div>
-                <img :src="require('./assets/img/img' + (index + 2) +'.png')" alt="project1">
+                <img :src="require('./assets/img/img' + (project.imgIndex) +'.png')" alt="project1">
               </a>
               <ul>
                 <li><span>Description</span>: {{project.description}}</li>
@@ -226,7 +226,8 @@ export default {
           description: 'App that allows you to create any unique countdown loops.',
           github: 'https://github.com/Tapio-adro/timeloops',
           link: 'https://timeloops.netlify.app/',
-          layout: 'adaptive, for phone devices'
+          layout: 'adaptive, for phone devices',
+          imgIndex: 3
         },
         {
           title: 'Muiltiply-trainer',
@@ -245,10 +246,19 @@ export default {
             'https://multiply-trainer.netlify.app/equation-trainer'
           ],
           layout: 'adaptive, for phone devices with 1 break-point'
+        },
+        {
+          title: 'Addresses checklist',
+          technologies: 'HTML, TypeScript, React.js, Sass',
+          description: 'App which can be used by couriers to navigate addresses. Made to be used on phones.',
+          github: 'https://github.com/Tapio-adro/addresses-app',
+          link: 'https://addresses-display.netlify.app/',
+          layout: 'for phone devices',
+          imgIndex: 4
         }
       ],
       project: {},
-      curPage: 'home',
+      curPage: 'projects',
       pages: [
         ['home', 'Home'],
         ['projects', 'My Projects'],
