@@ -267,7 +267,7 @@ export default {
         ['about', 'About me']
       ],
       pagesHome: [],
-      summary: 'Passionate junior front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS. Ready to make efforts to develop quality software with Vue.js.',
+      summary: 'Passionate junior front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS, as well as SASS and TypeScript. Ready to make efforts to develop quality software with React.js.',
       hardSkills: [
         'HTML5/CSS3/JS',
         'TypeScript',
