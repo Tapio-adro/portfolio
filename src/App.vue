@@ -233,7 +233,7 @@ export default {
         },
         {
           title: 'Muiltiply-trainer',
-          technologies: 'plain HTML/CSS/JS',
+          technologies: 'originally coded with plain HTML/CSS/JS, functionality extended with Vue.js, Sass',
           description: [
             'App consists of three parts. ', 
             'First is actualy for learning multiplication table. ', 
@@ -263,7 +263,7 @@ export default {
       curPage: 'home',
       pages: [
         ['home', 'Home'],
-        ['projects', 'My Projects'],
+        ['projects', 'My projects'],
         ['about', 'About me']
       ],
       pagesHome: [],
