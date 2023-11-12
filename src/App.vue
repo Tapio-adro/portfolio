@@ -1,13 +1,42 @@
 <template>
   <nav id="nav">
-    <div 
+    <a
       v-for="(page, index) in pages" :key="index"
-      @click="curPage = page[0]"
       :class="{active: curPage == page[0]}"
-    >{{ page[1] }}</div>
+      :href="( '#' + page[0] )"
+    >{{ page[1] }}</a>
   </nav>
-  <main id="content" v-if="curPage != 'home'">
-    <div id="projects" v-if="curPage == 'projects'">
+  <main id="content">
+    <section id="home">
+      <div id="full_screen">
+        <div class="wrapper">
+          <div class="title">
+            Hi, my name is
+            <br>
+            <div class="name">Ostap Terentiuk</div>
+            <div class="create">
+              I develop web applications with <span class="vue">Vue</span> and <span class="react">React</span>
+            </div>
+          </div>
+          <div id="external_links">
+            <div class="link_holder">
+              <a href="https://github.com/Tapio-adro?tab=repositories" target="_blank" class="github">
+                <i class="fa fa-github-square" aria-hidden="true"></i>
+              </a>
+              <div class="link_caption">Github</div>
+            </div>
+            <div class="link_holder">
+              <a href="https://www.linkedin.com/in/ostap-terentiuk" target="_blank" class="linkedin">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+              <div class="link_caption">LinkedIn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <h1 id="projects_title">Projects</h1>
       <div id="main" class="box_shadow">
         <div class="container">
           <h1 class="title">{{project.title}}</h1>
@@ -106,8 +135,8 @@
           </div>
         </template>
       </div>
-    </div>
-    <div id="about" v-if="curPage == 'about'">
+    </section>
+    <section id="about">
       <h1>Ostap Terentiuk</h1>
       <div id="summary">
         <h2>Summary</h2>
@@ -152,63 +181,15 @@
           </Teleport>
         </div>
       </div>
-    </div>
+    </section>
   </main>
-  <div id="home" v-if="curPage == 'home'">
-    <div id="full_screen">
-      <div class="wrapper">
-        <div class="title">
-          Hi, my name is
-          <br>
-          <div class="name">Ostap Terentiuk</div>
-          <div class="create">
-            I develop web applications with <span class="vue">Vue</span> and <span class="react">React</span>
-          </div>
-        </div>
-        <div id="external_links">
-          <div class="link_holder">
-            <a href="https://github.com/Tapio-adro?tab=repositories" target="_blank" class="github">
-              <i class="fa fa-github-square" aria-hidden="true"></i>
-            </a>
-            <div class="link_caption">Github</div>
-          </div>
-          <div class="link_holder">
-            <a href="https://www.linkedin.com/in/ostap-terentiuk" target="_blank" class="linkedin">
-              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-            </a>
-            <div class="link_caption">LinkedIn</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="internal_links">
-      <div id="links_inner">
-        <div
-          v-for="(page, index) in pagesHome" :key="index"
-        >
-          <div
-            v-if="page[0] != ''"
-            class="link"
-            @click="curPage = page[0]; scrollToTop()"
-          >
-            {{ page[1] }}
-          </div>
-          <div class="center_elem" v-else>
-            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-            &nbsp;
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-            &nbsp;
-            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          </div>
-      </div>
-      </div>
-    </div>
-  </div>
+
 </template>
 
 <script>
 import CopiedModal from './components/CopiedModal.vue'
 import projects from './assets/data/projectsData.js'
+import { watchSectionsScroll, stopWatchSectionsScroll } from './assets/scripts/watchSectionsScroll.js'
 
 export default {
   name: 'App',
@@ -223,16 +204,15 @@ export default {
         ['about', 'About me']
       ],
       pagesHome: [],
-      summary: 'Passionate junior front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS, as well as SASS and TypeScript. Ready to make efforts to develop quality software with React.js.',
+      summary: 'Passionate front-end developer with a desire to learn and grow. Have solid knowledge of HTML, CSS and JS, as well as SASS and TypeScript. Ready to make efforts to develop quality software with React.js or Vue.js.',
       hardSkills: [
         'HTML5/CSS3/JS',
         'TypeScript',
-        'SASS/SCSS preprocessors', 
-        'Adaptive layout, layout for mobile devices', 
-        'Flexbox, Grid', 
-        'OOP methodology', 
-        'Vue.js', 
         'React.js', 
+        'Vue.js', 
+        'Styled components', 
+        'SASS/SCSS preprocessors', 
+        'OOP methodology', 
         'Visual Studio code IDE.'
       ],
       softSkills: [
@@ -262,6 +242,12 @@ export default {
   beforeMount() {
     this.pagesHome = this.pages.slice(1);
     this.pagesHome.splice(1, 0, ['',''])
+  },
+  mounted() {
+    watchSectionsScroll();
+  },
+  beforeUnmout() {
+    stopWatchSectionsScroll();
   },
   components: {
     CopiedModal

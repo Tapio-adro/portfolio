@@ -1,5 +1,8 @@
 $breakpoint-600: 600px
 
+*
+  scroll-behavior: smooth
+  
 body
   font-family: Verdana,sans-serif
 
@@ -19,19 +22,26 @@ $textgrey: #666
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19)
 
 #nav
+  position: fixed
+  top: 0
+  left: 0
   min-width: 400px
+  width: 100%
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)  
   background-color: $lightgrey
   display: flex
   justify-content: center
+  z-index: 10
   @media (max-width: $breakpoint-600)
     min-width: 300px
-  div
+  a
     font-size: 1.5rem
     padding: 15px
     background-color: $grey
     cursor: pointer
     margin: 0 20px
+    color: #000
+    text-decoration: none
     @media (max-width: $breakpoint-600)
       font-size: 1rem
       padding: 10px
@@ -42,11 +52,13 @@ $textgrey: #666
 #content
   width: 80%
   min-width: 400px
-  margin: 50px auto
+  margin: 60px auto
   @media (max-width: $breakpoint-600)
     margin-top: 40px
     min-width: 300px
 
+#home
+  scroll-margin-top: 60px
 #home #full_screen
   padding-top: 100px
   width: 100%
@@ -61,24 +73,25 @@ $textgrey: #666
     display: flex
     flex-direction: row
     justify-content: space-between
-    margin: 0 200px
     @media (max-width: 1200px)
-      margin: 0 120px
+      // margin: 0 120px
     @media (max-width: 1000px)
-      margin: 0 80px
+      // margin: 0 80px
     @media (max-width: $breakpoint-600)
       flex-direction: column
       align-items: center
       row-gap: 40px
-      margin: 0 20px
+      // margin: 0 20px
     .title
       background-color: $lightgrey
-      width: 60%
+      width: 47%
       padding: 20px
       border-radius: 20px
       color: $green
       font-size: 1.2rem
       font-weight: bold
+      @media (max-width: 1200px)
+        width: 60%
       @media (max-width: 800px)
         font-size: 0.8rem
       @media (max-width: $breakpoint-600)
@@ -129,6 +142,7 @@ $textgrey: #666
     &:hover .link_caption
       opacity: 1
     .link_caption
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 2px 2px, rgba(9, 30, 66, 0.31) 0px 0px 1px
       text-align: center
       background-color: #fff
       border-radius: 5px
@@ -339,6 +353,13 @@ $textgrey: #666
   &.active
     background-color: #FFFF00
 
+#projects
+  scroll-margin-top: 90px
+#projects #projects_title
+  color: #4f4f4f
+  font-size: 40px
+  text-align: center
+  margin-bottom: 40px
 #projects #main
   border-radius: 30px
   padding: 25px 0
@@ -442,13 +463,14 @@ $textgrey: #666
 
 
 #about
+  scroll-margin-top: 90px
   h1
     min-width: 300px
     max-width: 350px
     color: $textgrey
     border-bottom: 10px solid $green
     border-top: 10px solid $green
-    margin: 0 auto 40px
+    margin: 120px auto 40px
     text-align: center
     padding: 10px 0
     border-radius: 20px
