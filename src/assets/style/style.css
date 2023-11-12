@@ -551,10 +551,6 @@ body {
        column-gap: 40px;
   row-gap: 40px;
 }
-#projects #projects_holder > *:last-child {
-  grid-column: span 2;
-  justify-self: center;
-}
 @media (max-width: 1000px) {
   #projects #projects_holder {
     grid-template-columns: 1fr;
