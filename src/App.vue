@@ -220,7 +220,7 @@ export default {
         'Problem-solving',
         'Critical thinking',
         'Resourcefulness',
-        'English: intermediate',
+        'English: advanced',
       ],
       showCopied: false,
       hideDoubleLink: true,
