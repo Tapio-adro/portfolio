@@ -1,25 +1,31 @@
 $breakpoint-600: 600px
 
+$lightgreen: #06e090
+$green: #04AA6D
+$darkgreen: #037c50
+$blue: #06bcf9
+$lightgrey: #f3f3f3
+$grey: #ddd
+$textgrey: #666
+$textcolor: #333
+
 *
   scroll-behavior: smooth
   
 body
-  font-family: Verdana,sans-serif
+  font-family: 'Inter', sans-serif
+  background-color: hsl(165, 15%, 97%)
+  color: $textcolor
+
 
 #app
   min-width: 400px
   @media (max-width: $breakpoint-600)
     min-width: 300px
 
-$green: #04AA6D
-$blue: #06bcf9
-$lightgrey: #f3f3f3
-$grey: #ddd
-$textgrey: #666
-  
-
 .box_shadow
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19)
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  background-color: #fff
 
 #nav
   position: fixed
@@ -27,21 +33,23 @@ $textgrey: #666
   left: 0
   min-width: 400px
   width: 100%
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)  
-  background-color: $lightgrey
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2)  
+  background-color: #ffffff
   display: flex
   justify-content: center
   z-index: 10
   @media (max-width: $breakpoint-600)
     min-width: 300px
   a
-    font-size: 1.5rem
+    transition: 0.125s
+    font-size: 1.1rem
     padding: 15px
-    background-color: $grey
+    // background-color: #d3dedc
     cursor: pointer
     margin: 0 20px
-    color: #000
+    color: #333
     text-decoration: none
+    font-weight: bold
     @media (max-width: $breakpoint-600)
       font-size: 1rem
       padding: 10px
@@ -63,178 +71,101 @@ $textgrey: #666
   padding-top: 100px
   width: 100%
   height: calc(100vh - 60px)
+  display: flex
   @media (max-width: 800px)
     padding-top: 50px
   @media (max-width: 600px)
     height: calc(100vh - 40px)
   @media (max-width: 400px)
     height: calc(100vh - 60px)
-  .wrapper
+  .images
+    flex: 1
+    height: 250px
     display: flex
-    flex-direction: row
-    justify-content: space-between
+    justify-content: center
+    align-items: center
+    gap: 50px
+    img
+      width: 100px
+  .wrapper
+    // flex-shrink: 0
+    display: flex
+    flex-direction: column
+    font-weight: 600
+    width: 500px
     @media (max-width: 1200px)
       // margin: 0 120px
     @media (max-width: 1000px)
       // margin: 0 80px
-    @media (max-width: $breakpoint-600)
-      flex-direction: column
-      align-items: center
-      row-gap: 40px
-      // margin: 0 20px
     .title
-      background-color: $lightgrey
-      width: 47%
       padding: 20px
       border-radius: 20px
-      color: $green
+      // color: $green
       font-size: 1.2rem
-      font-weight: bold
       @media (max-width: 1200px)
-        width: 60%
+        font-size: 1rem
       @media (max-width: 800px)
         font-size: 0.8rem
-      @media (max-width: $breakpoint-600)
-        width: 100%
       >div
         font-size: 3rem
-        font-family: Impact, fantasy
-        font-weight: lighter
         @media (max-width: 800px)
           font-size: 2rem
         @media (max-width: 450px)
           font-size: 1.4rem
       .name
-        color: #333333
-        border-bottom: 5px solid $green
         display: inline-block
         border-radius: 10px
         margin-top: 5px
+        font-weight: bold
       .create
-        color: $textgrey
+        font-size: 32px
         margin-top: 5px
-      span.vue
-        color: $green
+        font-weight: normal
+      span.green
+        color: $darkgreen
       span.react
         color: $blue
 
 #home #external_links
+  margin-top: 10px
   width: 20%
-  background-color: $lightgrey
   border-radius: 20px
   display: flex
-  justify-content: space-evenly
   align-items: center
-  flex-direction: column
-  @media (max-width: 800px)
-    width: 30%
-  @media (max-width: $breakpoint-600)
-    width: 80%
-    flex-direction: row
-    align-items: center
+  padding-left: 20px
+  gap: 16px
   .link_holder
-    height: 70px
-    @media (max-width: $breakpoint-600)
-      width: 47px
-      display: flex
-      flex-direction: row
-      align-items: center
     &:hover .link_caption
       opacity: 1
     .link_caption
-      box-shadow: rgba(9, 30, 66, 0.25) 0px 2px 2px, rgba(9, 30, 66, 0.31) 0px 0px 1px
+      position: absolute
+      box-shadow: 0px 1px 4px 0 rgba(9, 30, 66, 0.25)
       text-align: center
       background-color: #fff
       border-radius: 5px
       padding: 5px
       opacity: 0
       transition: 0.25s
+      margin-top: 5px
+      &:hover
+        opacity: 0
   a
-    // width: 100px
-    // height: 100px
-    padding: 10px
+    width: 41px
+    height: 41px
     text-decoration: none
     display: flex
     justify-content: center
     align-items: center
+    border-radius: 10px
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2)
     i
+      transition: 0.25s
       font-size: 3rem
-      color: $textgrey
+      color: $green
       @media (max-width: $breakpoint-600) 
         font-size: 2rem
       &:hover
-        color: $green     
-#home #internal_links
-  border-radius: 20px
-  border-top: 5px solid $green
-  background-color: $lightgrey
-  height: 100px
-  display: flex
-  justify-content: center
-  align-items: center
-  column-gap: 50px
-  @media (max-width: 800px)
-    column-gap: 20px
-  @media (max-width: 600px)
-    column-gap: 0px
-  #links_inner
-    display: flex
-    padding: 15px
-    border-radius: 10px
-    background-color: #fff
-  .link
-    font-size: 1.5rem
-    border: 3px solid $green
-    color: white
-    padding: 5px
-    border-radius: 10px
-    background-color: $green
-    cursor: pointer
-    padding: 10px
-    font-family: sans-serif
-    @media (max-width: 800px)
-      font-size: 1.5rem
-    @media (max-width: 600px)
-      font-size: 1rem
-      border-width: 3px
-    &:hover
-      background-color: #fff
-      color: $green
-  .center_elem
-    color: $green
-    font-size: 2rem
-    margin: 0 40px
-    display: flex
-    justify-content: center
-    align-items: center
-    animation-name: shiver
-    animation-duration: 3s
-    animation-iteration-count: 3
-    position: relative
-    @media (max-width: 800px)
-      margin: 0 20px
-      font-size: 1.5rem
-    @media (max-width: 400px)
-      margin: 0 5px
-      font-size: 1rem
-    .fa-long-arrow-left, .fa-long-arrow-right
-      font-size: 3rem
-      @media (max-width: 600px)
-        font-size: 2.5rem
-      @media (max-width: 400px)
-        font-size: 2rem
-    @keyframes shiver
-      0%
-        left: 0
-      5%
-        left: 10px
-      10%
-        left: 0
-      15%
-        left: -10px
-      20%
-        left: 0
-      100%
+        color: $darkgreen
 
 
 .img_link
@@ -242,6 +173,11 @@ $textgrey: #666
   display: block
   position: relative
   overflow: hidden
+  border: 5px solid $green
+  border-radius: 10px
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2)
+  &:hover
+    border-color: $darkgreen
   .img_title
     content: ''
     position: absolute
@@ -249,29 +185,29 @@ $textgrey: #666
     left: 0
     width: 100%
     height: 100%
-    z-index: 1
+    z-index: 2
     display: flex
     justify-content: center
     align-items: center
     opacity: 0
     transition: 0.5s
     div
+      font-weight: bold
       font-size: 1.5rem
-      background-color: #fff
-      color: $green
-      padding: 10px
-      border: 10px solid $green
-      border-radius: 5px
+      background-color: $green
+      color: #fff
+      padding: 12px
+      border-radius: 15px
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4)
   &:hover .img_title
     opacity: 1
   img
     width: 100%
     display: block
-    border-radius: 10px
     transition: 0.5s
   &:hover img
     transform: scale(1.1)
-  &::before
+  &::after
     content: ''
     display: block
     position: absolute
@@ -281,22 +217,10 @@ $textgrey: #666
     width: 100%
     height: 100%
     z-index: 1
-    border-radius: 10px
     opacity: 0
     transition: 0.5s
-  &:hover::before
-    opacity: 0.7
-  &::after
-    content: ''
-    display: block
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    z-index: 2
-    border-radius: 10px
-    border: 10px solid $green
+  &:hover::after
+    opacity: 0.5
 .list_markers
   list-style: none
   li::before
@@ -320,28 +244,25 @@ $textgrey: #666
   flex: 1
   align-items: center
   a
-    height: 50px
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2)
     display: block
     text-decoration: none
-    padding: 10px
+    padding: 15px 30px
     font-weight: bold
     border-radius: 10px
+    transition: 0.25s
     @media (max-width: $breakpoint-600)
       font-size: 0.8rem
   .github
-    color: #333
-    border: 5px solid #333
+    background-color: #333
+    color: #fff
     &:hover
-      border-color: #333
-      background-color: #333
-      color: #fff
+      background-color: #111
   .page
-    color: $green
-    border: 5px solid $green
+    background-color: $green
+    color: #fff
     &:hover
-      border-color: $green
-      background-color: $green
-      color: #fff
+      background-color: $darkgreen
 #projects li span
   background-color: $lightgrey
   padding: 2px
@@ -356,8 +277,7 @@ $textgrey: #666
 #projects
   scroll-margin-top: 90px
 #projects #projects_title
-  color: #4f4f4f
-  font-size: 40px
+  font-size: 36px
   text-align: center
   margin-bottom: 40px
 #projects #main
@@ -383,13 +303,16 @@ $textgrey: #666
 #projects #links_holder
   height: 50px
   width: 150px
-  color: $green
-  border: 5px solid $green
+  background-color: $green
+  color: #fff
   padding: 10px
   font-weight: bold
   border-radius: 10px
   text-align: center
+  padding: 15px 30px
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2)
   &.active
+    // background-color: #fff
     border: none
     padding: 0
   #double_link
@@ -407,8 +330,11 @@ $textgrey: #666
       border-radius: 10px
       padding: 10px
       border: 3px solid $green
+      box-shadow: none
+      background-color: #fff
     a:hover
-      background-color: $green
+      background-color: $darkgreen
+      border: 3px solid $darkgreen
       color: #fff
     i
       padding: 10px
@@ -432,6 +358,7 @@ $textgrey: #666
       grid-column: span 1
   .project
     @extend .box_shadow
+    background-color: #fff
     border-radius: 20px
     padding: 15px 0
     .container
@@ -451,9 +378,11 @@ $textgrey: #666
       margin: 15px auto
       .img_title div
         font-size: 1rem
-        padding: 5px
-        border: 5px solid $green
-        border-radius: 2px
+        padding: 0
+        padding: 10px
+        background-color: $green
+        color: #fff
+        border-radius: 10px
     ul
       @extend .list_markers
       margin: 0 auto
@@ -467,7 +396,7 @@ $textgrey: #666
   h1
     min-width: 300px
     max-width: 350px
-    color: $textgrey
+    color: $textcolor
     border-bottom: 10px solid $green
     border-top: 10px solid $green
     margin: 120px auto 40px
@@ -475,6 +404,7 @@ $textgrey: #666
     padding: 10px 0
     border-radius: 20px
     background-color: $lightgrey
+    background-color: #fff
   h2
     text-align: center
     color: $green

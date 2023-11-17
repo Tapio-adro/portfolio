@@ -15,7 +15,7 @@
             <br>
             <div class="name">Ostap Terentiuk</div>
             <div class="create">
-              I develop web applications with <span class="vue">Vue</span> and <span class="react">React</span>
+              I <span class="green">develop web applications</span> with React and Vue
             </div>
           </div>
           <div id="external_links">
@@ -33,6 +33,10 @@
             </div>
           </div>
         </div>
+        <div class="images">
+          <img :src="require('./assets/img/react.png')" alt="">
+          <img :src="require('./assets/img/vue.png')" alt="">
+        </div>
       </div>
     </section>
     <section id="projects">
@@ -41,8 +45,8 @@
         <div class="container">
           <h1 class="title">{{project.title}}</h1>
           <a :href="project.link" class="img_link" target="_blank">
-            <div class="img_title"><div>Visit page</div></div>
             <img :src="require('./assets/img/img1.png')" alt="project1">
+            <div class="img_title"><div>Visit page</div></div>
           </a>
           <ul>
             <li><span>Description</span>: {{project.description}}</li>
@@ -216,11 +220,11 @@ export default {
         'Visual Studio code IDE.'
       ],
       softSkills: [
+        'English: advanced',
         'Fast-learning',
         'Problem-solving',
         'Critical thinking',
         'Resourcefulness',
-        'English: advanced',
       ],
       showCopied: false,
       hideDoubleLink: true,
