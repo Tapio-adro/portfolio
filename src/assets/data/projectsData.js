@@ -44,12 +44,12 @@ export default [
     imgIndex: 3
   },
   {
-    title: 'Addresses checklist',
-    technologies: 'HTML, TypeScript, React.js, Sass',
-    description: 'App which is designed to be used by couriers to navigate addresses.',
-    github: 'https://github.com/Tapio-adro/addresses-app',
-    link: 'https://addresses-display.netlify.app/',
-    layout: 'for phone devices',
+    title: 'Teploschorona',
+    technologies: 'Vue.js, TypeScript, Sass',
+    description: 'An app for finding idioms based on their meaning or content.',
+    github: 'https://github.com/Tapio-adro/teploschorona',
+    link: 'https://teploschorona.netlify.app/',
+    layout: 'adaptive, for phone devices',
     imgIndex: 4
   }
 ];

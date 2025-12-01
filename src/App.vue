@@ -177,7 +177,7 @@
               @click="copyEmail()"
             >
               <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
-              terentuk4321@gmail.com
+              ostapterentiuk@gmail.com
             </span>
           </div>
           <Teleport to="body">
@@ -221,10 +221,9 @@ export default {
       ],
       softSkills: [
         'English: advanced',
+        'Teamwork',
         'Fast-learning',
-        'Problem-solving',
         'Critical thinking',
-        'Resourcefulness',
       ],
       showCopied: false,
       hideDoubleLink: true,
@@ -233,7 +232,7 @@ export default {
   },
   methods: {
     copyEmail() {
-      navigator.clipboard.writeText('terentuk4321@gmail.com');
+      navigator.clipboard.writeText('ostapterentiuk@gmail.com');
       this.showCopied = true;
       setTimeout(() => {
         this.showCopied = false;
